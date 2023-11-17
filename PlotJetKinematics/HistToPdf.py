@@ -152,8 +152,8 @@ def loadAndSaveGeneral(inDirectory,outDirectory,histNum,variable,xAxis,setLogy=F
     RootHisttoPdfGeneral(outDirectory+variable+"hists.pdf",HistArray,TitlesArray,xAxis,"N",histNum,setLogy)
 
 #define directory
-inDirectory = "/home/jmuecke/code/mueckejonas/DataFiles/Results/Roots/angularkinematics2023B/"
-outDirectory = "/home/jmuecke/code/mueckejonas/DataFiles/Results/Pdfs/angularkinematics2023B/"
+inDirectory = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Root/"
+outDirectory = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Pdf/"
 
 #create Jet pdfs
 loadAndSave(inDirectory,outDirectory,10,"pt","Pt [GeV]",True)

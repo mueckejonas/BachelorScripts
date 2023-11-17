@@ -100,8 +100,8 @@ def loadAndSaveData(inFileName,outFileName,evNum,mjj,variable,binNum,histXmin,hi
     writeHists(outFileName+variable+"hists.root",temp250to350Hist,temp350to500Hist,temp500to650Hist,temp650to850Hist,temp850to1100Hist,temp1100to1400Hist,temp1400to1800Hist,temp1800to2200Hist,tempover2200Hist,temphistallmjj)
 
 #define general parameters to use
-RootFolder = "/home/jmuecke/code/mueckejonas/DataFiles/Results/Roots/angularkinematics2023B/"
-NumpyFolder = "/home/jmuecke/code/mueckejonas/DataFiles/Results/Numpys/angularkinematics2023B/"
+RootFolder = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Root/"
+NumpyFolder = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Numpy/"
 eventNum = 1000000
 mjj = np.load(NumpyFolder+"mjj_values.npy")
 

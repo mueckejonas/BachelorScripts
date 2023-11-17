@@ -187,9 +187,9 @@ def loadRootDataJet3(fileName,treeName,eventNum,outDirectory):
     np.save(outDirectory+"nConstituents3_values.npy",nConstituents)
     print("Jet 3 numpy arrays saved")
 
-RootFolder = "/home/jmuecke/code/mueckejonas/DataFiles/RootFiles/Datas/"
-NumpyFolder = "/home/jmuecke/code/mueckejonas/DataFiles/Results/Numpys/angularkinematics2023B/"
-fileName = RootFolder+"JetMET0_Run2023B-PromptNanoAODv11p9_v1-v1_NANOAOD.root"
+RootDataFolder = "/nfs/dust/cms/user/hinzmann/run2023/"
+NumpyFolder = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Numpy/"
+fileName = RootDataFolder+"JetMET0_Run2023B-PromptNanoAODv11p9_v1-v1_NANOAOD.root"
 treeName = "Events"
 eventNum = 1000000
 
