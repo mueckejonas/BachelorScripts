@@ -44,8 +44,8 @@ def RootHisttoPdf(outFileName,data1,logyScale,dataNumber,yAxisTitle,xAxisTitle,t
     canvas.Print(outFileName)
 
 #define directory
-inDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/Root/"
-outDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/Pdf/"
+inDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/DijetEventSelection/ROOT/"
+outDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/DijetEventSelection/PDF/"
 inFileName = inDirectory+"Hists_Run2023B.root"
 #Get Jets and Kinematics
 histFile = ROOT.TFile.Open(inFileName,"READ")
