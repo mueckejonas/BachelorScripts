@@ -43,7 +43,7 @@ int TreeToHistSel()
   tree.SetBranchAddress("jetAK4_btagDeepFlavB1",&btagDeepFlavB1Num);
   tree.SetBranchAddress("jetAK4_nConstituents1",&nConstituents1Num);
 
-  TH1D pt1("datapt1","pt for jet1 data",50,0,1000);
+  TH1D pt1("datapt1","pt for jet1 data",50,0,4000);
   pt1.Sumw2();
   TH1D y1("datay1","y for jet1 data",50,-6,6);
   y1.Sumw2();
@@ -51,7 +51,7 @@ int TreeToHistSel()
   eta1.Sumw2();
   TH1D phi1("dataphi1","phi for jet1 data",50,-4,4);
   phi1.Sumw2();
-  TH1D mass1("datamass1","mass for jet1 data",50,0,200);
+  TH1D mass1("datamass1","mass for jet1 data",50,0,300);
   mass1.Sumw2();
   TH1D jec1("datajec1","jec for jet1 data",50,0.5,1.3);
   jec1.Sumw2();
@@ -103,7 +103,7 @@ int TreeToHistSel()
   tree.SetBranchAddress("jetAK4_btagDeepFlavB2",&btagDeepFlavB2Num);
   tree.SetBranchAddress("jetAK4_nConstituents2",&nConstituents2Num);
 
-  TH1D pt2("datapt2","pt for jet2 data",50,0,1000);
+  TH1D pt2("datapt2","pt for jet2 data",50,0,4000);
   pt2.Sumw2();
   TH1D y2("datay2","y for jet2 data",50,-6,6);
   y2.Sumw2();
@@ -111,7 +111,7 @@ int TreeToHistSel()
   eta2.Sumw2();
   TH1D phi2("dataphi2","phi for jet2 data",50,-4,4);
   phi2.Sumw2();
-  TH1D mass2("datamass2","mass for jet2 data",50,0,100);
+  TH1D mass2("datamass2","mass for jet2 data",50,0,300);
   mass2.Sumw2();
   TH1D jec2("datajec2","jec for jet2 data",50,0.5,1.3);
   jec2.Sumw2();
@@ -163,7 +163,7 @@ int TreeToHistSel()
   tree.SetBranchAddress("jetAK4_btagDeepFlavB3",&btagDeepFlavB3Num);
   tree.SetBranchAddress("jetAK4_nConstituents3",&nConstituents3Num);
 
-  TH1D pt3("datapt3","pt for jet3 data",50,0,1000);
+  TH1D pt3("datapt3","pt for jet3 data",50,0,4000);
   pt3.Sumw2();
   TH1D y3("datay3","y for jet3 data",50,-6,6);
   y3.Sumw2();
@@ -171,7 +171,7 @@ int TreeToHistSel()
   eta3.Sumw2();
   TH1D phi3("dataphi3","phi for jet3 data",50,-4,4);
   phi3.Sumw2();
-  TH1D mass3("datamass3","mass for jet3 data",50,0,100);
+  TH1D mass3("datamass3","mass for jet3 data",50,0,200);
   mass3.Sumw2();
   TH1D jec3("datajec3","jec for jet3 data",50,0.5,1.3);
   jec3.Sumw2();
@@ -193,13 +193,13 @@ int TreeToHistSel()
   nConstituents3.Sumw2();
 
   //Create quantities calculated from variables
-  TH1D MjjHist("datamjj","Mjj [Gev]",50,0,5000);
+  TH1D MjjHist("datamjj","Mjj [Gev]",50,2000,8000);
   MjjHist.Sumw2();
 
   TH1D YBoostHist("datayboost","YBoost",50,0,2);
   YBoostHist.Sumw2();
 
-  TH1D ChiHist("datachi","Chi",50,0,20);
+  TH1D ChiHist("datachi","Chi",50,0,16);
   ChiHist.Sumw2();
 
   //Fill the Hists with Root Tree Data
