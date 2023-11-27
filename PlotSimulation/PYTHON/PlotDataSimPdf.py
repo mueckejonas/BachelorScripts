@@ -1,24 +1,34 @@
 import ROOT
 import numpy as np
 
-import ROOT
-import numpy as np
 #takes three hists and turn them into pdf
-def RootHisttoPdf(outFileName,data,simulation,logyScale,yAxisTitle,xAxisTitle,title):
-    canvas = ROOT.TCanvas("canvas")
+def RootHisttoPdf(outFileName,data,simulation,logyScale,yAxisTitle,xAxisTitle,title,undertitle):
+    canvas_pads = ROOT.TCanvas("canvas_pads", "Double ratio")
+    pad_top = ROOT.TPad("top_pad", "Top pad", 0, 0.3, 1, 1)
     if logyScale:
-        canvas.SetLogy(True)
-    canvas.cd()
+        pad_top.SetLogy(True)
+    pad_top.SetBottomMargin(0)
+    pad_top.Draw()
+    pad_bottom = ROOT.TPad("bottom_pad", "Bottom pad", 0, 0.05, 1, 0.3)
+    pad_bottom.SetBottomMargin(0.25)
+    pad_bottom.SetTopMargin(0)
+    pad_bottom.Draw()
 
     latex = ROOT.TLatex()
     latex.SetNDC()
-    latex.SetTextSize(0.03)
+    latex.SetTextSize(0.06)
 
     legend = ROOT.TLegend(0.7,0.6,0.85,0.75)
     legend.SetLineWidth(0)
-    legend.AddEntry(data,"data")
-    legend.AddEntry(simulation,"simulation")
+    legend.AddEntry(data,"Data")
+    legend.AddEntry(simulation,"Simulation")
 
+    line = ROOT.TLine(data.GetXaxis().GetXmin(),1,data.GetXaxis().GetXmax(),1)
+    line.SetLineColor(ROOT.kBlack)
+    line.SetLineWidth(2)
+
+    #create and draw to upper plot
+    pad_top.cd()
     data.SetStats(0)
     data.SetLineColor(ROOT.kBlack)
     data.SetLineWidth(2)
@@ -27,14 +37,38 @@ def RootHisttoPdf(outFileName,data,simulation,logyScale,yAxisTitle,xAxisTitle,ti
     simulation.SetLineWidth(2)
     simulation.SetTitle("")
     data.GetYaxis().SetTitle(yAxisTitle)
-    data.GetXaxis().SetTitle(xAxisTitle)
+    data.GetYaxis().SetTitleSize(0.05)
+    data.GetXaxis().SetTitleSize(0)
+    data.GetXaxis().SetLabelSize(0)
     data.SetTitle("")
-    simulation.Scale()
+    simulation.Scale(data.Integral()/simulation.Integral())
     data.Draw("pe")
     simulation.Draw("h,same")
     legend.Draw("same")
-    latex.DrawText(0.7,0.8,title)
-    canvas.Print(outFileName)
+    latex.DrawText(0.7,0.83,title)
+    latex.SetTextSize(0.04)
+    latex.DrawText(0.7,0.77,undertitle)
+    #create and draw to bottom plot
+    pad_bottom.cd()
+    ratioDataSim = data.Clone()
+    ratioDataSim.Divide(simulation)
+    ratioDataSim.SetLineColor(ROOT.kBlack)
+    ratioDataSim.SetLineWidth(2)
+    ratioDataSim.SetTitle("")
+    ratioDataSim.GetYaxis().SetTitle("Data/Simulation")
+    ratioDataSim.GetYaxis().SetLabelSize(0.1)
+    ratioDataSim.GetYaxis().SetTitleSize(0.15)
+    ratioDataSim.GetXaxis().SetLabelSize(0.12)
+    ratioDataSim.GetXaxis().SetLabelSize(0.12)
+    ratioDataSim.GetYaxis().SetTitleOffset(0.3)
+    ratioDataSim.GetYaxis().SetNdivisions (207)
+    ratioDataSim.GetXaxis().SetTitle(xAxisTitle)
+    ratioDataSim.SetLineColor(ROOT.kRed)
+    ratioDataSim.Draw("pe")
+    line.Draw("same")
+    #draw whole plot
+    canvas_pads.Draw()
+    canvas_pads.Print(outFileName)
 
 #define directories
 dataInDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/DijetEventSelection/ROOT/"
@@ -75,23 +109,23 @@ for i in range(0,14):
 
     #create and save pdf files
     if JetNameArray[i] == "pt" or JetNameArray[i] == "mass":
-        RootHisttoPdf(outDirectory+JetNameArray[i]+"1DataandSim.pdf",data1,sim1,True,"N",XaxisArray[i],"Data and Simulation for"+JetNameArray[i]+"1")
-        RootHisttoPdf(outDirectory+JetNameArray[i]+"2DataandSim.pdf",data2,sim2,True,"N",XaxisArray[i],"Data and Simulation for"+JetNameArray[i]+"2")
-        RootHisttoPdf(outDirectory+JetNameArray[i]+"3DataandSim.pdf",data3,sim3,True,"N",XaxisArray[i],"Data and Simulation for"+JetNameArray[i]+"3")
+        RootHisttoPdf(outDirectory+JetNameArray[i]+"1DataandSim.pdf",data1,sim1,True,"N",XaxisArray[i],"Run3 2023",JetNameArray[i]+"1")
+        RootHisttoPdf(outDirectory+JetNameArray[i]+"2DataandSim.pdf",data2,sim2,True,"N",XaxisArray[i],"Run3 2023",JetNameArray[i]+"2")
+        RootHisttoPdf(outDirectory+JetNameArray[i]+"3DataandSim.pdf",data3,sim3,True,"N",XaxisArray[i],"Run3 2023",JetNameArray[i]+"3")
     else:
-        RootHisttoPdf(outDirectory+JetNameArray[i]+"1DataandSim.pdf",data1,sim1,False,"N",XaxisArray[i],"Data and Simulation for"+JetNameArray[i]+"1")
-        RootHisttoPdf(outDirectory+JetNameArray[i]+"2DataandSim.pdf",data2,sim2,False,"N",XaxisArray[i],"Data and Simulation for"+JetNameArray[i]+"2")
-        RootHisttoPdf(outDirectory+JetNameArray[i]+"3DataandSim.pdf",data3,sim3,False,"N",XaxisArray[i],"Data and Simulation for"+JetNameArray[i]+"3")
+        RootHisttoPdf(outDirectory+JetNameArray[i]+"1DataandSim.pdf",data1,sim1,False,"N",XaxisArray[i],"Run3 2023",JetNameArray[i]+"1")
+        RootHisttoPdf(outDirectory+JetNameArray[i]+"2DataandSim.pdf",data2,sim2,False,"N",XaxisArray[i],"Run3 2023",JetNameArray[i]+"2")
+        RootHisttoPdf(outDirectory+JetNameArray[i]+"3DataandSim.pdf",data3,sim3,False,"N",XaxisArray[i],"Run3 2023",JetNameArray[i]+"3")
 
 #create yboost pdf
 datayboost = dataKinematics.Get("datayboost")
 simyboost = simKinematics.Get("MCyboost")
-RootHisttoPdf(outDirectory+"yboostDataandSim.pdf",datayboost,simyboost,False,"N","Yboost","Data and Simulation for Yboost")
+RootHisttoPdf(outDirectory+"yboostDataandSim.pdf",datayboost,simyboost,False,"N","Yboost","Run3 2023","Yboost")
 #create chi pdf
 datachi = dataKinematics.Get("datachi")
 simchi = simKinematics.Get("MCchi")
-RootHisttoPdf(outDirectory+"chiDataandSim.pdf",datachi,simchi,False,"N","Chi","Data and Simulation for Chi")
+RootHisttoPdf(outDirectory+"chiDataandSim.pdf",datachi,simchi,False,"N","Chi","Run3 2023","Chi")
 #create mjj pdf
 datamjj = dataKinematics.Get("datamjj")
 simmjj = simKinematics.Get("MCmjj")
-RootHisttoPdf(outDirectory+"mjjDataandSim.pdf",datamjj,simmjj,True,"N","Mjj [GeV]","Data and Simulation for Mjj")
+RootHisttoPdf(outDirectory+"mjjDataandSim.pdf",datamjj,simmjj,True,"N","Mjj [GeV]","Run3 2023","Mjj")
