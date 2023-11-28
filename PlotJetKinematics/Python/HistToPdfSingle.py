@@ -101,8 +101,8 @@ def loadAndSave(inDirectory,outDirectory,histNum,variable,xAxis,setLogy=False):
     RootHisttoPdf(outDirectory+variable+"hists.pdf",HistArray,TitlesArray,xAxis,"N",histNum,setLogy)
 
 #define directory
-inDirectory = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Root/"
-outDirectory = "/nfs/dust/cms/user/mueckejo/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/run2023BM0/Pdf/"
+inDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/Root/"
+outDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotJetKInematics/Pdf/Single/"
 
 #create Jet1 pdfs
 loadAndSave(inDirectory,outDirectory,10,"pt1","Pt1 [GeV]",True)
