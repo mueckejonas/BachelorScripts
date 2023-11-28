@@ -16,6 +16,20 @@ root170to300 = ROOT.TFile.Open(inDirectory+"170to300Run32023_MC.root")
 scale170to300 = (1.162e+05)*(17889000/Nges)
 root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
 scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
+root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
+scale300to470 = (7.584e+03)*(34626000/Nges)
 
 """
 QCD_PT-50to80_TuneCP5_13p6TeV_pythia8 1.679e+07 11988000
@@ -30,6 +44,7 @@ QCD_PT-1000to1400_TuneCP5_13p6TeV_pythia8 8.829e+00 11956000
 QCD_PT-1400to1800_TuneCP5_13p6TeV_pythia8 7.952e-01 3596000
 QCD_PT-1800to2400_TuneCP5_13p6TeV_pythia8 1.147e-01 1792000
 QCD_PT-2400to3200_TuneCP5_13p6TeV_pythia8 7.619e-03 1200000
+QCD_PT-3200_TuneCP5_13p6TeV_pythia8 2.331e-04 478000
 """
 
 #load and scale 50to80 Simulation

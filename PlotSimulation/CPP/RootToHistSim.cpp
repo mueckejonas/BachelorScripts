@@ -3,11 +3,11 @@ int RootToHistSim()
 
   string ranges[13] = {"50to80","80to120","120to170","170to300","300to470","470to600","600to800","800to1000","1000to1400","1400to1800","1800to2400","2400to3200","3200"};
 
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 13; i++)
   {
-    string rootFile = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotSimulation/ROOT/QCD_PT-"+ranges[i]+"_TuneCP5_13p6TeV_pythia8_Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2_NANOAODSIM.root";
-    string outName1 = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotSimulation/ROOT/"+ranges[i]+"Run32023_MC.root";
-    string outName2 = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotSimulation/ROOT/"+ranges[i]+"Run32023_Gen.root";
+    string rootFile = "/nfs/dust/cms/user/hinzmann/run2023/QCD_PT-"+ranges[i]+"_TuneCP5_13p6TeV_pythia8_Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2_NANOAODSIM.root";
+    string outName1 = "/nfs/dust/cms/user/mueckejo/BachelorStorage/PlotSimulation/ROOT/"+ranges[i]+"Run32023_MC.root";
+    string outName2 = "/nfs/dust/cms/user/mueckejo/BachelorStorage/PlotSimulation/ROOT/"+ranges[i]+"Run32023_Gen.root";
 
     TFile* inFile = TFile::Open(rootFile.c_str(),"READ");
     TTree* tree = (TTree*)inFile->Get("Events");
@@ -280,7 +280,7 @@ int RootToHistSim()
     genChiHist.Sumw2();
 
     //Fill the Hists with Root Tree MC and Genjets
-    for (Long64_t entry = 0; entry < 1000; ++entry)
+    for (Long64_t entry = 0; entry < 10000; ++entry)
     {
       tree->GetEntry(entry);
 
