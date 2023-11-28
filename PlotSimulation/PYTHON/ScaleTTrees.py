@@ -1,7 +1,7 @@
 import ROOT
 
-inDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotSimulation/ROOT/"
-outDirectory = "/home/jmuecke/code/mueckejonas/BachelorArbeitJM/BachelorStorage/PlotSimulation/PDF/Simulation/"
+inDirectory = "/nfs/dust/cms/user/mueckejo/BachelorStorage/PlotSimulation/ROOT/"
+outDirectory = "/nfs/dust/cms/user/mueckejo/BachelorStorage/PlotSimulation/PDF/"
 
 #load tree data
 Nges = 200610000
