@@ -297,7 +297,7 @@ int RootToHistSim()
       //Calculate MC yboost
       double YBoostValue = (y1Num[0]+y2Num[0])/2;
 
-      if (MjjValue > 0 && ChiValue < 16 && abs(YBoostValue) < 1.11)
+      if (MjjValue > 2500 && ChiValue < 16 && abs(YBoostValue) < 1.11)
       {
         //Fill mcJet1
         pt1.Fill(pt1Num[0]);
@@ -370,7 +370,7 @@ int RootToHistSim()
       //Calculate yboost
       double genYBoostValue = (geny1Num[0]+geny2Num[0])/2;
 
-      if (genMjjValue > 0 && genChiValue < 16 && abs(genYBoostValue) < 1.11)
+      if (genMjjValue > 2500 && genChiValue < 16 && abs(genYBoostValue) < 1.11)
       {
         //Fill genJet1
         genpt1.Fill(genpt1Num[0]);
