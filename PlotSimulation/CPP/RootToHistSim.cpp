@@ -279,6 +279,7 @@ int RootToHistSim()
     TH1D genChiHist("Genchi","Chi",50,0,16);
     genChiHist.Sumw2();
 
+    std::cout << tree->GetEntries() << std::endl;
     //Fill the Hists with Root Tree MC and Genjets
     for (Long64_t entry = 0; entry < tree->GetEntries(); ++entry)
     {
