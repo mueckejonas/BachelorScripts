@@ -53,7 +53,7 @@ int TreeToHistSel()
   phi1.Sumw2();
   TH1D mass1("datamass1","mass for jet1 data",50,0,500);
   mass1.Sumw2();
-  TH1D jec1("datajec1","jec for jet1 data",50,0.5,1);
+  TH1D jec1("datajec1","jec for jet1 data",50,0.5,1.3);
   jec1.Sumw2();
   TH1D muf1("datamuf1","muf for jet1 data",50,0,1);
   muf1.Sumw2();
@@ -61,7 +61,7 @@ int TreeToHistSel()
   nhf1.Sumw2();
   TH1D chf1("datachf1","chf for jet1 data",50,0,1);
   chf1.Sumw2();
-  TH1D area1("dataarea1","area for jet1 data",50,0.3,0.6);
+  TH1D area1("dataarea1","area for jet1 data",50,0.2,1);
   area1.Sumw2();
   TH1D nemf1("datanemf1","nemf for jet1 data",50,0,1);
   nemf1.Sumw2();
@@ -113,7 +113,7 @@ int TreeToHistSel()
   phi2.Sumw2();
   TH1D mass2("datamass2","mass for jet2 data",50,0,500);
   mass2.Sumw2();
-  TH1D jec2("datajec2","jec for jet2 data",50,0.5,1);
+  TH1D jec2("datajec2","jec for jet2 data",50,0.5,1.3);
   jec2.Sumw2();
   TH1D muf2("datamuf2","muf for jet2 data",50,0,1);
   muf2.Sumw2();
@@ -121,7 +121,7 @@ int TreeToHistSel()
   nhf2.Sumw2();
   TH1D chf2("datachf2","chf for jet2 data",50,0,1);
   chf2.Sumw2();
-  TH1D area2("dataarea2","area for jet2 data",50,0.3,0.6);
+  TH1D area2("dataarea2","area for jet2 data",50,0.2,1);
   area2.Sumw2();
   TH1D nemf2("datanemf2","nemf for jet2 data",50,0,1);
   nemf2.Sumw2();
@@ -173,7 +173,7 @@ int TreeToHistSel()
   phi3.Sumw2();
   TH1D mass3("datamass3","mass for jet3 data",50,0,200);
   mass3.Sumw2();
-  TH1D jec3("datajec3","jec for jet3 data",50,0.5,1);
+  TH1D jec3("datajec3","jec for jet3 data",50,0.5,1.3);
   jec3.Sumw2();
   TH1D muf3("datamuf3","muf for jet3 data",50,0,1);
   muf3.Sumw2();
@@ -181,7 +181,7 @@ int TreeToHistSel()
   nhf3.Sumw2();
   TH1D chf3("datachf3","chf for jet3 data",50,0,1);
   chf3.Sumw2();
-  TH1D area3("dataarea3","area for jet3 data",50,0.3,0.6);
+  TH1D area3("dataarea3","area for jet3 data",50,0.2,1);
   area3.Sumw2();
   TH1D nemf3("datanemf3","nemf for jet3 data",50,0,1);
   nemf3.Sumw2();
@@ -193,7 +193,7 @@ int TreeToHistSel()
   nConstituents3.Sumw2();
 
   //Create quantities calculated from variables
-  TH1D MjjHist("datamjj","Mjj [Gev]",50,2000,10000);
+  TH1D MjjHist("datamjj","Mjj [Gev]",50,0,8000);
   MjjHist.Sumw2();
 
   TH1D YBoostHist("datayboost","YBoost",50,0,2);
