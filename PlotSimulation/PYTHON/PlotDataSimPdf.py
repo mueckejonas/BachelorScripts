@@ -20,8 +20,9 @@ def RootHisttoPdf(outFileName,data,simulation,logyScale,yAxisTitle,xAxisTitle,ti
 
     legend = ROOT.TLegend(0.7,0.6,0.85,0.75)
     legend.SetLineWidth(0)
+    legend.SetTextSize(0.03)
     legend.AddEntry(data,"Data")
-    legend.AddEntry(simulation,"Simulation (*N_{data}/N_{sim})")
+    legend.AddEntry(simulation,"Simulation (*Integral_{data}/Integral_{sim})")
 
     line = ROOT.TLine(data.GetXaxis().GetXmin(),1,data.GetXaxis().GetXmax(),1)
     line.SetLineColor(ROOT.kBlack)
@@ -41,7 +42,7 @@ def RootHisttoPdf(outFileName,data,simulation,logyScale,yAxisTitle,xAxisTitle,ti
     data.GetXaxis().SetTitleSize(0)
     data.GetXaxis().SetLabelSize(0)
     data.SetTitle("")
-    data.Scale(1/1206)
+    data.Scale(1/1.206)
     simulation.Scale(data.Integral()/simulation.Integral())
     data.Draw("pe")
     simulation.Draw("h,same")
