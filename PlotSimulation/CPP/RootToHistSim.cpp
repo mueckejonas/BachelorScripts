@@ -280,7 +280,7 @@ int RootToHistSim()
     genChiHist.Sumw2();
 
     //Fill the Hists with Root Tree MC and Genjets
-    for (Long64_t entry = 0; entry < 1000; ++entry)
+    for (Long64_t entry = 0; entry < tree->GetEntries(); ++entry)
     {
       tree->GetEntry(entry);
 
