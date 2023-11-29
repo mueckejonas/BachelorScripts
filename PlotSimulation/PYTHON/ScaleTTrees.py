@@ -4,47 +4,45 @@ inDirectory = "/nfs/dust/cms/user/mueckejo/BachelorStorage/PlotSimulation/ROOT/"
 outDirectory = "/nfs/dust/cms/user/mueckejo/BachelorStorage/PlotSimulation/PDF/"
 
 #load tree data
-Nges = 200610000
 
 root50to80 = ROOT.TFile.Open(inDirectory+"50to80Run32023_MC.root")
-scale50to80 = (1.679e+07)*(11988000/Nges)
+scale50to80 = ((1.679e+07)/(11988000))*10e9
 print(scale50to80)
-
 root80to120 = ROOT.TFile.Open(inDirectory+"80to120Run32023_MC.root")
-scale80to120 = (2.513e+06)*(17979000/Nges)
+scale80to120 = ((2.513e+06)/(17979000))*10e9
 print(scale80to120)
 root120to170 = ROOT.TFile.Open(inDirectory+"120to170Run32023_MC.root")
-scale120to170 = (4.574e+05)*(17964000/Nges)
+scale120to170 = ((4.574e+05)/(17964000))*10e9
 print(scale120to170)
 root170to300 = ROOT.TFile.Open(inDirectory+"170to300Run32023_MC.root")
-scale170to300 = (1.162e+05)*(17889000/Nges)
+scale170to300 = ((1.162e+05)/(17889000))*10e9
 print(scale170to300)
 root300to470 = ROOT.TFile.Open(inDirectory+"300to470Run32023_MC.root")
-scale300to470 = (7.584e+03)*(34626000/Nges)
+scale300to470 = ((7.584e+03)/(34626000))*10e9
 print(scale300to470)
 root470to600 = ROOT.TFile.Open(inDirectory+"470to600Run32023_MC.root")
-scale470to600 = (6.490e+02)*(16766000/Nges)
+scale470to600 = ((6.490e+02)/(16766000))*10e9
 print(scale470to600)
 root600to800 = ROOT.TFile.Open(inDirectory+"600to800Run32023_MC.root")
-scale600to800 = (1.809e+02)*(40468000/Nges)
+scale600to800 = ((1.809e+02)/(40468000))*10e9
 print(scale600to800)
 root800to1000 = ROOT.TFile.Open(inDirectory+"800to1000Run32023_MC.root")
-scale800to1000 = (3.105e+01)*(23908000/Nges)
+scale800to1000 = ((3.105e+01)/(23908000))*10e9
 print(scale800to1000)
 root1000to1400 = ROOT.TFile.Open(inDirectory+"1000to1400Run32023_MC.root")
-scale1000to1400 = (8.829e+00)*(11956000/Nges)
+scale1000to1400 = ((8.829e+00)/(11956000))*10e9
 print(scale1000to1400)
 root1400to1800 = ROOT.TFile.Open(inDirectory+"1400to1800Run32023_MC.root")
-scale1400to1800 = (7.952e-01)*(3596000/Nges)
+scale1400to1800 = ((7.952e-01)/(3596000))*10e9
 print(scale1400to1800)
 root1800to2400 = ROOT.TFile.Open(inDirectory+"1800to2400Run32023_MC.root")
-scale1800to2400 = (1.147e-01)*(1792000/Nges)
+scale1800to2400 = ((1.147e-01)/(1792000))*10e9
 print(scale1800to2400)
 root2400to3200 = ROOT.TFile.Open(inDirectory+"2400to3200Run32023_MC.root")
-scale2400to3200 = (7.619e-03)*(1200000/Nges)
+scale2400to3200 = ((7.619e-03)/(1200000))*10e9
 print(scale2400to3200)
 root3200 = ROOT.TFile.Open(inDirectory+"3200Run32023_MC.root")
-scale3200 = (2.331e-04)*(478000/Nges)
+scale3200 = ((2.331e-04)/(478000))*10e9
 print(scale3200)
 """
 QCD_PT-50to80_TuneCP5_13p6TeV_pythia8 1.679e+07 11988000
@@ -1448,7 +1446,7 @@ pt1_1400to1800.SetTitle("")
 pt1_1800to2400.SetTitle("")
 pt1_2400to3200.SetTitle("")
 pt1_3200.SetTitle("")
-pt1_50to80.Draw("pe")
+pt1_3200.Draw("pe")
 pt1_80to120.Draw("pe,same")
 pt1_120to170.Draw("pe,same")
 pt1_170to300.Draw("pe,same")
@@ -1460,8 +1458,16 @@ pt1_1000to1400.Draw("pe,same")
 pt1_1400to1800.Draw("pe,same")
 pt1_1800to2400.Draw("pe,same")
 pt1_2400to3200.Draw("pe,same")
-pt1_3200.Draw("pe,same")
+pt1_50to80.Draw("pe,same")
+#pt1_50to80.GetYaxis().SetRangeUser(0,10e8)
 legend.Draw("same")
 latex.DrawText(0.7,0.8,"Pt1 Simualtion")
 canvas.Print(outDirectory+"pt1simulation.pdf")
 canvas.Clear()
+
+canvas = ROOT.TCanvas("testcanvas")
+canvas.SetLogy(True)
+canvas.cd()
+pt1_800to1000.Add(pt1_2400to3200)
+pt1_800to1000.Draw("pe")
+canvas.Print(outDirectory+"test.pdf")
